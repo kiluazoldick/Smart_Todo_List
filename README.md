@@ -46,7 +46,7 @@ Visit [http://localhost:3000](http://localhost:3000) in your browser to view the
 
 ## 🎨 Preview
 
-[Preview image](https://github.com/kiluazoldick/Smart_Todo_List/blob/15357301e095efd93e0b218cbf7a9a7a9d44c2ac/preview.png)
+[Preview image](preview.png)
 
 ## 📝 The Process
 
