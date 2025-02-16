@@ -46,7 +46,7 @@ Visit [http://localhost:3000](http://localhost:3000) in your browser to view the
 
 ## 🎨 Preview
 
-[Preview image](preview.png)
+![Preview image](preview.png)
 
 ## 📝 The Process
 
