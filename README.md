@@ -54,13 +54,8 @@ This project was created to demonstrate a modern approach to building a todo lis
 
 ## 📌 Links
 
-- [GitHub Repository](https://github.com/kiluazoldick/Smart-To-Do-App)
+- [GitHub Repository](https://github.com/kiluazoldick/Smart_Todo_List.git)
 - [Live Demo](https://smart-todo-list-rho.vercel.app/) 
 
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/kiluazoldick/Smart-To-Do-App/issues).
-
----
 
 Made with ❤️ by **Kilua Zoldick**
