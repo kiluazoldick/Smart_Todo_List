@@ -23,7 +23,7 @@ A modern, interactive todo list application with a clean design and smooth user 
 
 ### 1. Clone the repository:
 ```bash
-git clone https://github.com/kiluazoldick/Smart-To-Do-App.git
+git clone [https://github.com/kiluazoldick/Smart-To-Do-App.git](https://github.com/kiluazoldick/Smart_Todo_List.git)
 ```
 
 ### 2. Navigate to the project directory:
