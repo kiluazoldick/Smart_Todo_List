@@ -9,6 +9,7 @@ A modern, interactive todo list application with a clean design and smooth user 
 - Smooth animations for adding and removing todos
 - Fully responsive design, optimized for all devices
 - Accessible design with proper labeling and keyboard navigation
+- Switch toggle mode black and ligth
 
 ## 🔧 Technologies
 
