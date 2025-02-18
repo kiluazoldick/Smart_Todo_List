@@ -20,7 +20,7 @@ type Todo = {
 export default function Home() {
   const [view, setView] = useState<"list" | "kanban">("list");
   const [todos, setTodos] = useState<Todo[]>([]);
-  const { theme } = useTheme();
+  useTheme();
 
   const addTodo = (newTodo: Omit<Todo, "id">) => {
     setTodos([...todos, { ...newTodo, id: Date.now() }]);
