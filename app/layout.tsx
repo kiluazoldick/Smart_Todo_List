@@ -26,7 +26,7 @@ export default function RootLayout({
               <h1 className="text-2xl font-bold">Smart Todo List</h1>
               <ThemeToggle />
             </header>
-            <main className="container mx-auto p-4">{children}</main>
+            <main>{children}</main>
           </div>
         </ThemeProvider>
       </body>
