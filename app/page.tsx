@@ -20,7 +20,8 @@ type Todo = {
 export default function Home() {
   const [view, setView] = useState<"list" | "kanban">("list");
   const [todos, setTodos] = useState<Todo[]>([]);
-  useTheme();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { theme } = useTheme();
 
   const addTodo = (newTodo: Omit<Todo, "id">) => {
     setTodos([...todos, { ...newTodo, id: Date.now() }]);

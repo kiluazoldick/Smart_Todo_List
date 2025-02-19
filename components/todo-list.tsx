@@ -1,35 +1,53 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { PlusCircle, CalendarIcon } from "lucide-react"
-import TodoItem from "./todo-item"
-import { DateTimePicker } from "./date-time-picker"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { PlusCircle, CalendarIcon } from "lucide-react";
+import TodoItem from "./todo-item";
+import { DateTimePicker } from "./date-time-picker";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
-type Importance = "low" | "medium" | "high"
+type Importance = "low" | "medium" | "high";
 
 type Todo = {
-  id: number
-  text: string
-  completed: boolean
-  datetime: Date | null
-  importance: Importance
-}
+  id: number;
+  text: string;
+  completed: boolean;
+  datetime: Date | null;
+  importance: Importance;
+};
 
 type TodoListProps = {
-  todos: Todo[]
-  onAddTodo: (newTodo: Omit<Todo, "id">) => void
-  onToggleTodo: (id: number) => void
-  onDeleteTodo: (id: number) => void
-  onUpdateTodo: (id: number, newText: string, newDatetime: Date | null, newImportance: Importance) => void
-}
+  todos: Todo[];
+  onAddTodo: (newTodo: Omit<Todo, "id">) => void;
+  onToggleTodo: (id: number) => void;
+  onDeleteTodo: (id: number) => void;
+  onUpdateTodo: (
+    id: number,
+    newText: string,
+    newDatetime: Date | null,
+    newImportance: Importance
+  ) => void;
+};
 
-export default function TodoList({ todos, onAddTodo, onToggleTodo, onDeleteTodo, onUpdateTodo }: TodoListProps) {
-  const [newTodo, setNewTodo] = useState("")
-  const [newTodoDate, setNewTodoDate] = useState<Date | null>(null)
-  const [newTodoImportance, setNewTodoImportance] = useState<Importance>("medium")
+export default function TodoList({
+  todos,
+  onAddTodo,
+  onToggleTodo,
+  onDeleteTodo,
+  onUpdateTodo,
+}: TodoListProps) {
+  const [newTodo, setNewTodo] = useState("");
+  const [newTodoDate, setNewTodoDate] = useState<Date | null>(null);
+  const [newTodoImportance, setNewTodoImportance] =
+    useState<Importance>("medium");
 
   const addTodo = () => {
     if (newTodo.trim()) {
@@ -38,12 +56,12 @@ export default function TodoList({ todos, onAddTodo, onToggleTodo, onDeleteTodo,
         completed: false,
         datetime: newTodoDate,
         importance: newTodoImportance,
-      })
-      setNewTodo("")
-      setNewTodoDate(null)
-      setNewTodoImportance("medium")
+      });
+      setNewTodo("");
+      setNewTodoDate(null);
+      setNewTodoImportance("medium");
     }
-  }
+  };
 
   return (
     <div className="space-y-4 max-w-2xl mx-auto">
@@ -56,12 +74,23 @@ export default function TodoList({ todos, onAddTodo, onToggleTodo, onDeleteTodo,
           onKeyPress={(e) => e.key === "Enter" && addTodo()}
           className="flex-grow border-none shadow-none focus-visible:ring-0 bg-transparent"
         />
-        <DateTimePicker date={newTodoDate} setDate={setNewTodoDate} className="w-auto">
-          <Button variant="ghost" size="icon" className="text-foreground/70 hover:text-foreground">
+        <DateTimePicker
+          date={newTodoDate}
+          setDate={setNewTodoDate}
+          className="w-auto"
+        >
+          <Button
+            variant="ghost"
+            size="icon"
+            className="text-foreground/70 hover:text-foreground"
+          >
             <CalendarIcon className="h-5 w-5" />
           </Button>
         </DateTimePicker>
-        <Select value={newTodoImportance} onValueChange={(value: Importance) => setNewTodoImportance(value)}>
+        <Select
+          value={newTodoImportance}
+          onValueChange={(value: Importance) => setNewTodoImportance(value)}
+        >
           <SelectTrigger className="w-[100px] border-none bg-transparent">
             <SelectValue placeholder="Importance" />
           </SelectTrigger>
@@ -71,16 +100,26 @@ export default function TodoList({ todos, onAddTodo, onToggleTodo, onDeleteTodo,
             <SelectItem value="high">High</SelectItem>
           </SelectContent>
         </Select>
-        <Button onClick={addTodo} variant="ghost" size="icon" className="text-foreground/70 hover:text-foreground">
+        <Button
+          onClick={addTodo}
+          variant="ghost"
+          size="icon"
+          className="text-foreground/70 hover:text-foreground"
+        >
           <PlusCircle className="h-5 w-5" />
         </Button>
       </div>
       <ul className="space-y-2">
         {todos.map((todo) => (
-          <TodoItem key={todo.id} todo={todo} onToggle={onToggleTodo} onDelete={onDeleteTodo} onUpdate={onUpdateTodo} />
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            onToggle={onToggleTodo}
+            onDelete={onDeleteTodo}
+            onUpdate={onUpdateTodo}
+          />
         ))}
       </ul>
     </div>
-  )
+  );
 }
-
