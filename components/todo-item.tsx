@@ -5,7 +5,6 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Trash2, Edit2, Check } from "lucide-react"
-import { motion } from "framer-motion"
 import { DateTimePicker } from "./date-time-picker"
 import { format } from "date-fns"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
@@ -46,13 +45,8 @@ export default function TodoItem({ todo, onToggle, onDelete, onUpdate }: TodoIte
   }
 
   return (
-    <motion.li
-      layout
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.2 }}
-      className={`flex flex-col p-3 bg-white rounded-lg shadow-sm border ${importanceColors[todo.importance]}`}
+    <li
+      className={`flex flex-col p-3 bg-white rounded-lg shadow-sm border transition-colors ${importanceColors[todo.importance]}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -143,7 +137,7 @@ export default function TodoItem({ todo, onToggle, onDelete, onUpdate }: TodoIte
           </span>
         </div>
       )}
-    </motion.li>
+    </li>
   )
 }
 

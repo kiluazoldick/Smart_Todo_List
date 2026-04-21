@@ -1,28 +1,29 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { CalendarIcon } from "lucide-react";
-import { format } from "date-fns";
-
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
+import * as React from "react"
+import { CalendarIcon } from "lucide-react"
+import { format } from "date-fns"
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import { Calendar } from "@/components/ui/calendar"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
-import { Input } from "./ui/input";
+} from "@/components/ui/popover"
+import { Input } from "@/components/ui/input"
+
+interface DateTimePickerProps {
+  date: Date | null
+  setDate: (date: Date | null) => void
+  className?: string
+  children?: React.ReactNode
+}
 
 export function DateTimePicker({
   date,
   setDate,
-}: {
-  date: Date | null;
-  setDate: (date: Date | null) => void;
-  className?: string;
-  children?: React.ReactNode; // Ajout de children
-}) {
+}: DateTimePickerProps) {
   const [selectedTime, setSelectedTime] = React.useState(
     date ? format(date, "HH:mm") : ""
   );
