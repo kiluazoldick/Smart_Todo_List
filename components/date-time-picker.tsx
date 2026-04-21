@@ -23,44 +23,49 @@ interface DateTimePickerProps {
 export function DateTimePicker({
   date,
   setDate,
+  children,
 }: DateTimePickerProps) {
   const [selectedTime, setSelectedTime] = React.useState(
     date ? format(date, "HH:mm") : ""
-  );
+  )
 
   const handleDateSelect = (selectedDate: Date | undefined) => {
     if (selectedDate) {
-      const [hours, minutes] = selectedTime.split(":").map(Number);
-      selectedDate.setHours(hours || 0, minutes || 0, 0, 0);
-      setDate(selectedDate);
+      const [hours, minutes] = selectedTime.split(":").map(Number)
+      selectedDate.setHours(hours || 0, minutes || 0, 0, 0)
+      setDate(selectedDate)
     } else {
-      setDate(null);
+      setDate(null)
     }
-  };
+  }
 
   const handleTimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedTime(event.target.value);
+    setSelectedTime(event.target.value)
     if (date) {
-      const [hours, minutes] = event.target.value.split(":").map(Number);
-      const newDate = new Date(date);
-      newDate.setHours(hours || 0, minutes || 0, 0, 0);
-      setDate(newDate);
+      const [hours, minutes] = event.target.value.split(":").map(Number)
+      const newDate = new Date(date)
+      newDate.setHours(hours || 0, minutes || 0, 0, 0)
+      setDate(newDate)
     }
-  };
+  }
 
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button
-          variant={"outline"}
-          className={cn(
-            "w-full justify-start text-left font-normal",
-            !date && "text-muted-foreground"
-          )}
-        >
-          <CalendarIcon className="mr-2 h-4 w-4" />
-          {date ? format(date, "PPP HH:mm") : <span>Pick a date</span>}
-        </Button>
+        {children ? (
+          children
+        ) : (
+          <Button
+            variant={"outline"}
+            className={cn(
+              "w-full justify-start text-left font-normal",
+              !date && "text-muted-foreground"
+            )}
+          >
+            <CalendarIcon className="mr-2 h-4 w-4" />
+            {date ? format(date, "PPP HH:mm") : <span>Pick a date</span>}
+          </Button>
+        )}
       </PopoverTrigger>
       <PopoverContent className="w-auto p-0" align="start">
         <Calendar
@@ -74,5 +79,5 @@ export function DateTimePicker({
         </div>
       </PopoverContent>
     </Popover>
-  );
+  )
 }

@@ -1,6 +1,5 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import TodoItem from "./todo-item"
 
 type Importance = "low" | "medium" | "high"
